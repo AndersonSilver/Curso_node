@@ -21,13 +21,14 @@ app.get("/blog/:artigo?", function(req,res){
 });
 
 app.get("/youtube", function(req,res){
-    res.send("Ola, seja bem vindo ao meu canal do youtube");
+    let nome = req.query["nome"];
+    res.send("Ola" + nome + " , seja bem vindo ao meu canal do youtube");
 });
+
 app.get("/majo/:nome/:empresa", function(req,res){
+
     //req => Dados enviado pelo usuario
     //res => Resposta enviada para o usuario
-
-    // res.send("Ola, seja bem vindo ao meu canal do youtube");
 
     let empresa = req.params.empresa
     let nome = req.params.nome 
@@ -42,7 +43,7 @@ app.listen(3000,function(erro){
     if(erro){
         console.log("Aconteceu um erro, servidor nao foi aberto")
     }else{
-        console.log("Servidor aberto com sucesso")
+        console.info(`⚡️Server is running at http://localhost:3000`);
     }
 
 })
